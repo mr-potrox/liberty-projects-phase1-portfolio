@@ -221,12 +221,19 @@ a {
 }
 .img-flex-box img{
 	border-radius: 50%;
+	border: 0.5rem solid rgba(0, 0, 0, 0.1);
 }
 @media all and (min-width: 700px) {
 	.flex {
 		display: flex;
 		justify-content: space-between;
 	}
+	.flex.contact-wrapper {
+		display: flex;
+		justify-content: center;
+		color: white;
+	}
+
 }
 @media all and (max-width: 700px) {
 	.flex {
@@ -247,11 +254,17 @@ a {
 }
 .box>* {
   flex: 1 1 160px;
-	background-color: green;
 	border-radius: 4%;
-	height: 24px;
 	text-align: center;
 	padding: 4px;
+	margin: 0.4em;
+	padding: 1em;
+	cursor: pointer;
+	background: #e1e1e1;
+	text-decoration: none;
+	color: #666;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	-webkit-font-smoothing: antialiased;
 }
 .txt-center {
 	text-align: center;
@@ -261,6 +274,9 @@ a {
 #contact-section hr,
 #portfolio-section hr {
 	margin: 0 auto;
+}
+#contact-section h2 {
+	color: #fff;
 }
 
 /* contact form */
@@ -288,9 +304,10 @@ a {
 .c-form-label {
   display: inline-block;
   margin: .5rem 0;
-  color: #3d3935;
+  color: #f9f9f9;
   letter-spacing: .2px;
   font-size: 1rem;
+	text-align: left;
 }
 .c-form-input {
   width: 100%;
@@ -345,10 +362,69 @@ fieldset {
   }
 }
 
-.contact-wrapper{
-	background-image: url(../assets/contact.jpeg);
+#contact-section{
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center center;
+	background-color: #212529;
+	background-image: url(../assets/contact.png);
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.skills-section-wrapper {
 	margin: 10px;
+}
+
+.skills-item {
+	display: inline-block;
+	vertical-align: middle;
+	/* -webkit-transform: perspective(1px) translateZ(0);  */
+	transform: perspective(1px) translateZ(0); 
+	box-shadow: 0 0 1px rgba(0, 0, 0, 0); 
+	position: relative; 
+	-webkit-transition-property: color; 
+	transition-property: color; 
+	-webkit-transition-duration: 0.3s; 
+	transition-duration: 0.3s;
+}
+
+.skills-item:hover {
+	background-color: #0ebac5;
+	color: #fff;
+}
+
+section#about-section,
+section#portfolio-section {
+	background-color: #c9c9c987;
+}
+h2 {
+	text-transform: uppercase;
+}
+
+/* Card CSS */
+.card-box {
+	transition: transform 0.5s;
+	background-color: white;
+	cursor: pointer;
+}
+.card-box::after {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	content: "";
+	opacity: 0;
+	z-index: -1;
+}
+.card-box:hover,
+.card-box:focus {
+	transition: opacity 2s cubic-bezier(0.165, 0.84, 0.44, 1);
+	box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.15);
+	transform: scale3d(1.006, 1.006, 1);
+
+}
+.card-box::after {
+	opacity: 1;
 }
